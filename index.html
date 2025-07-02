@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fleshslave5</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Apply Inter font globally and ensure smooth transitions */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Ensure smooth background and text color transitions for theme changes */
+        html.light body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        html.dark body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4
+             bg-vibrant-light-bg text-vibrant-light-fg
+             dark:bg-vibrant-dark-bg dark:text-vibrant-dark-fg">
+
+    <div class="container mx-auto max-w-sm">
+        <h1 class="text-center text-3xl font-bold mb-8 p-4 rounded-lg shadow-md
+                   bg-vibrant-light-card text-vibrant-light-fg
+                   dark:bg-vibrant-dark-card dark:text-vibrant-dark-fg
+                   transition-colors duration-300">
+            fleshslave5
+
+        <div id="social-buttons" class="space-y-4">
+            <!-- Instagram Button -->
+            <a href="https://www.instagram.com/fleshslave5/" target="_blank" rel="noopener noreferrer"
+               class="social-button flex items-center justify-center w-full py-4 px-6 rounded-lg shadow-lg
+                      bg-vibrant-light-card text-vibrant-light-fg
+                      dark:bg-vibrant-dark-card dark:text-vibrant-dark-fg
+                      hover:bg-vibrant-light-accent dark:hover:bg-vibrant-dark-accent
+                      transition-all duration-200 ease-in-out transform hover:scale-105">
+                <i class="fab fa-instagram text-2xl mr-3"></i>
+                <span class="text-xl font-semibold">Instagram</span>
+            </a>
+
+            <!-- YouTube Button -->
+            <a href="https://youtube.com/@fleshslaveno5?feature=shared" target="_blank" rel="noopener noreferrer"
+               class="social-button flex items-center justify-center w-full py-4 px-6 rounded-lg shadow-lg
+                      bg-vibrant-light-card text-vibrant-light-fg
+                      dark:bg-vibrant-dark-card dark:text-vibrant-dark-fg
+                      hover:bg-vibrant-light-accent dark:hover:bg-vibrant-dark-accent
+                      transition-all duration-200 ease-in-out transform hover:scale-105">
+                <i class="fab fa-youtube text-2xl mr-3"></i>
+                <span class="text-xl font-semibold">YouTube</span>
+            </a>
+
+            <!-- Discord Button -->
+            <a href="https://discord.gg/n7rDe2P3e8" target="_blank" rel="noopener noreferrer"
+               class="social-button flex items-center justify-center w-full py-4 px-6 rounded-lg shadow-lg
+                      bg-vibrant-light-card text-vibrant-light-fg
+                      dark:bg-vibrant-dark-card dark:text-vibrant-dark-fg
+                      hover:bg-vibrant-light-accent dark:hover:bg-vibrant-dark-accent
+                      transition-all duration-200 ease-in-out transform hover:scale-105">
+                <i class="fab fa-discord text-2xl mr-3"></i>
+                <span class="text-xl font-semibold">Discord</span>
+            </a>
+
+            <!-- GitHub Button -->
+            <a href="https://github.com/fleshslave5" target="_blank" rel="noopener noreferrer"
+               class="social-button flex items-center justify-center w-full py-4 px-6 rounded-lg shadow-lg
+                      bg-vibrant-light-card text-vibrant-light-fg
+                      dark:bg-vibrant-dark-card dark:text-vibrant-dark-fg
+                      hover:bg-vibrant-light-accent dark:hover:bg-vibrant-dark-accent
+                      transition-all duration-200 ease-in-out transform hover:scale-105">
+                <i class="fab fa-github text-2xl mr-3"></i>
+                <span class="text-xl font-semibold">GitHub</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Configure Tailwind CSS to use 'class' for dark mode and define Vibrant colors
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode based on the 'dark' class on the html element
+            theme: {
+                extend: {
+                    colors: {
+                        vibrant: {
+                            'dark-bg': '#1a1a2e',      /* Deep Blue */
+                            'dark-fg': '#e0e0e0',      /* Light Gray */
+                            'dark-card': '#2e2e4a',    /* Slightly Lighter Deep Blue */
+                            'dark-accent': '#e94560',  /* Vibrant Red */
+                            'light-bg': '#f0f2f5',     /* Off-White/Light Gray */
+                            'light-fg': '#333333',     /* Dark Gray */
+                            'light-card': '#ffffff',   /* Pure White */
+                            'light-accent': '#007bff', /* Bright Blue */
+                        },
+                    },
+                },
+            },
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const html = document.documentElement;
+            const buttons = document.querySelectorAll('.social-button');
+
+            /**
+             * Applies the correct theme (dark or light) based on the user's preference.
+             * Toggles the 'dark' class on the html element, which Tailwind uses to apply dark mode styles.
+             * @param {boolean} isDarkMode - True if dark mode should be applied, false for light mode.
+             */
+            function applyTheme(isDarkMode) {
+                if (isDarkMode) {
+                    html.classList.add('dark');
+                } else {
+                    html.classList.remove('dark');
+                }
+            }
+
+            // Check the initial system theme preference and apply it
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(prefersDarkMode);
+
+            // Listen for changes in the system's theme preference and update the site
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                applyTheme(e.matches);
+            });
+
+            // Add simple visual effects to buttons on interaction (click/tap)
+            buttons.forEach(button => {
+                // Effect for mouse clicks
+                button.addEventListener('mousedown', () => {
+                    button.classList.add('scale-95', 'shadow-inner');
+                });
+                button.addEventListener('mouseup', () => {
+                    button.classList.remove('scale-95', 'shadow-inner');
+                });
+                // Reset effect if mouse leaves while button is pressed
+                button.addEventListener('mouseleave', () => {
+                    button.classList.remove('scale-95', 'shadow-inner');
+                });
+
+                // Effects for touch interactions (mobile)
+                button.addEventListener('touchstart', (e) => {
+                    e.preventDefault(); // Prevent default touch behaviors like scrolling
+                    button.classList.add('scale-95', 'shadow-inner');
+                }, { passive: false }); // Use passive: false to allow preventDefault
+                button.addEventListener('touchend', () => {
+                    button.classList.remove('scale-95', 'shadow-inner');
+                });
+                button.addEventListener('touchcancel', () => { // Handle cases where touch is interrupted
+                    button.classList.remove('scale-95', 'shadow-inner');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
