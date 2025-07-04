@@ -1,163 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fleshslave5</title>
+    <title>fleshslave5 | Links</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts: Roboto Flex for Material You feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,700&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome for social media icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Apply Inter font globally and ensure smooth transitions */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto Flex', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            background-color: transparent;
         }
-        /* Ensure smooth background and text color transitions for theme changes */
-        html.light body {
-            transition: background-color 0.3s ease, color 0.3s ease;
+
+        #live-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: background-color 0.3s ease-in-out;
         }
-        html.dark body {
-            transition: background-color 0.3s ease, color 0.3s ease;
+
+        /* Base styles for all social buttons for consistency */
+        .social-button {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            font-size: 1.125rem;
+            border-radius: 9999px; /* Pill shape */
+            transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.1s ease, border-color 0.2s ease-in-out;
+        }
+
+        .social-button:active {
+            transform: scale(0.98); /* Click feedback */
         }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4
-             bg-vibrant-light-bg text-vibrant-light-fg
-             dark:bg-vibrant-dark-bg dark:text-vibrant-dark-fg">
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6">
 
-    <div class="container mx-auto max-w-sm">
-        <h1 class="text-center text-3xl font-bold mb-8 p-4 rounded-lg shadow-md
-                   bg-vibrant-light-card text-vibrant-light-fg
-                   dark:bg-vibrant-dark-card dark:text-vibrant-dark-fg
-                   transition-colors duration-300">
-            fleshslave5
+    <!-- The animated background canvas -->
+    <canvas id="live-background"></canvas>
 
-        <div id="social-buttons" class="space-y-4">
-            <!-- Instagram Button -->
-            <a href="https://www.instagram.com/fleshslave5/" target="_blank" rel="noopener noreferrer"
-               class="social-button flex items-center justify-center w-full py-4 px-6 rounded-lg shadow-lg
-                      bg-vibrant-light-card text-vibrant-light-fg
-                      dark:bg-vibrant-dark-card dark:text-vibrant-dark-fg
-                      hover:bg-vibrant-light-accent dark:hover:bg-vibrant-dark-accent
-                      transition-all duration-200 ease-in-out transform hover:scale-105">
-                <i class="fab fa-instagram text-2xl mr-3"></i>
-                <span class="text-xl font-semibold">Instagram</span>
+    <!-- Theme toggle button positioned at the top right -->
+    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="fixed top-4 right-4 z-20 w-12 h-12 rounded-full flex items-center justify-center text-xl bg-sol-light-surface-container dark:bg-sol-dark-surface-container text-sol-light-on-surface dark:text-sol-dark-on-surface hover:bg-sol-light-hover dark:hover:bg-sol-dark-hover transition-colors duration-200">
+        <i id="theme-icon-sun" class="fas fa-sun"></i>
+        <i id="theme-icon-moon" class="fas fa-moon hidden"></i>
+    </button>
+
+    <!-- Main container for the content -->
+    <main class="w-full max-w-md mx-auto z-10">
+        
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-sol-light-on-surface dark:text-sol-dark-on-surface">
+                fleshslave5
+            </h1>
+            <p class="mt-2 text-lg text-sol-light-on-surface-variant dark:text-sol-dark-on-surface-variant">
+                Follow me on my platforms
+            </p>
+        </header>
+
+        <!-- Social Links Section with Solarized accent colors -->
+        <div id="social-links" class="space-y-4">
+            
+            <a href="https://www.instagram.com/fleshslave5/" target="_blank" rel="noopener noreferrer" class="social-button border border-sol-base2 dark:border-transparent bg-sol-light-magenta-container text-sol-light-on-magenta-container hover:bg-sol-light-magenta-hover dark:bg-sol-dark-magenta-container dark:text-sol-dark-on-magenta-container dark:hover:bg-sol-dark-magenta-hover">
+                <i class="fab fa-instagram text-2xl w-8"></i>
+                <span class="flex-grow text-center">Instagram</span>
             </a>
 
-            <!-- YouTube Button -->
-            <a href="https://youtube.com/@fleshslaveno5?feature=shared" target="_blank" rel="noopener noreferrer"
-               class="social-button flex items-center justify-center w-full py-4 px-6 rounded-lg shadow-lg
-                      bg-vibrant-light-card text-vibrant-light-fg
-                      dark:bg-vibrant-dark-card dark:text-vibrant-dark-fg
-                      hover:bg-vibrant-light-accent dark:hover:bg-vibrant-dark-accent
-                      transition-all duration-200 ease-in-out transform hover:scale-105">
-                <i class="fab fa-youtube text-2xl mr-3"></i>
-                <span class="text-xl font-semibold">YouTube</span>
+            <a href="https://www.tiktok.com/@fleshslave?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-button border border-sol-base2 dark:border-transparent bg-sol-light-cyan-container text-sol-light-on-cyan-container hover:bg-sol-light-cyan-hover dark:bg-sol-dark-cyan-container dark:text-sol-dark-on-cyan-container dark:hover:bg-sol-dark-cyan-hover">
+                <i class="fab fa-tiktok text-2xl w-8"></i>
+                <span class="flex-grow text-center">TikTok</span>
             </a>
 
-            <!-- Discord Button -->
-            <a href="https://discord.gg/n7rDe2P3e8" target="_blank" rel="noopener noreferrer"
-               class="social-button flex items-center justify-center w-full py-4 px-6 rounded-lg shadow-lg
-                      bg-vibrant-light-card text-vibrant-light-fg
-                      dark:bg-vibrant-dark-card dark:text-vibrant-dark-fg
-                      hover:bg-vibrant-light-accent dark:hover:bg-vibrant-dark-accent
-                      transition-all duration-200 ease-in-out transform hover:scale-105">
-                <i class="fab fa-discord text-2xl mr-3"></i>
-                <span class="text-xl font-semibold">Discord</span>
+            <a href="https://youtube.com/@fleshslaveno5?feature=shared" target="_blank" rel="noopener noreferrer" class="social-button border border-sol-base2 dark:border-transparent bg-sol-light-red-container text-sol-light-on-red-container hover:bg-sol-light-red-hover dark:bg-sol-dark-red-container dark:text-sol-dark-on-red-container dark:hover:bg-sol-dark-red-hover">
+                <i class="fab fa-youtube text-2xl w-8"></i>
+                <span class="flex-grow text-center">YouTube</span>
             </a>
 
-            <!-- GitHub Button -->
-            <a href="https://github.com/fleshslave5" target="_blank" rel="noopener noreferrer"
-               class="social-button flex items-center justify-center w-full py-4 px-6 rounded-lg shadow-lg
-                      bg-vibrant-light-card text-vibrant-light-fg
-                      dark:bg-vibrant-dark-card dark:text-vibrant-dark-fg
-                      hover:bg-vibrant-light-accent dark:hover:bg-vibrant-dark-accent
-                      transition-all duration-200 ease-in-out transform hover:scale-105">
-                <i class="fab fa-github text-2xl mr-3"></i>
-                <span class="text-xl font-semibold">GitHub</span>
+            <a href="https://discord.gg/n7rDe2P3e8" target="_blank" rel="noopener noreferrer" class="social-button border border-sol-base2 dark:border-transparent bg-sol-light-blue-container text-sol-light-on-blue-container hover:bg-sol-light-blue-hover dark:bg-sol-dark-blue-container dark:text-sol-dark-on-blue-container dark:hover:bg-sol-dark-blue-hover">
+                <i class="fab fa-discord text-2xl w-8"></i>
+                <span class="flex-grow text-center">Discord</span>
+            </a>
+
+            <a href="https://github.com/fleshslave5" target="_blank" rel="noopener noreferrer" class="social-button border border-sol-base2 dark:border-transparent bg-sol-light-green-container text-sol-light-on-green-container hover:bg-sol-light-green-hover dark:bg-sol-dark-green-container dark:text-sol-dark-on-green-container dark:hover:bg-sol-dark-green-hover">
+                <i class="fab fa-github text-2xl w-8"></i>
+                <span class="flex-grow text-center">GitHub</span>
+            </a>
+
+            <a href="mailto:fleshslave5@gmail.com" class="social-button border border-sol-base2 dark:border-transparent bg-sol-light-orange-container text-sol-light-on-orange-container hover:bg-sol-light-orange-hover dark:bg-sol-dark-orange-container dark:text-sol-dark-on-orange-container dark:hover:bg-sol-dark-orange-hover">
+                <i class="fas fa-envelope text-2xl w-8"></i>
+                <span class="flex-grow text-center">Email Me</span>
             </a>
         </div>
-    </div>
+        
+    </main>
 
     <script>
-        // Configure Tailwind CSS to use 'class' for dark mode and define Vibrant colors
+        // --- Tailwind CSS Configuration ---
         tailwind.config = {
-            darkMode: 'class', // Enable dark mode based on the 'dark' class on the html element
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        vibrant: {
-                            'dark-bg': '#1a1a2e',      /* Deep Blue */
-                            'dark-fg': '#e0e0e0',      /* Light Gray */
-                            'dark-card': '#2e2e4a',    /* Slightly Lighter Deep Blue */
-                            'dark-accent': '#e94560',  /* Vibrant Red */
-                            'light-bg': '#f0f2f5',     /* Off-White/Light Gray */
-                            'light-fg': '#333333',     /* Dark Gray */
-                            'light-card': '#ffffff',   /* Pure White */
-                            'light-accent': '#007bff', /* Bright Blue */
-                        },
-                    },
-                },
-            },
-        };
+                        // Solarized Theme Palette (sol)
+                        // Base
+                        'sol-base03': '#002b36', 'sol-base02': '#073642',
+                        'sol-base01': '#586e75', 'sol-base00': '#657b83',
+                        'sol-base0':  '#839496', 'sol-base1':  '#93a1a1',
+                        'sol-base2':  '#eee8d5', 'sol-base3':  '#fdf6e3',
+                        // Accents
+                        'sol-yellow': '#b58900', 'sol-orange': '#cb4b16',
+                        'sol-red':    '#dc322f', 'sol-magenta':'#d33682',
+                        'sol-violet': '#6c71c4', 'sol-blue':   '#268bd2',
+                        'sol-cyan':   '#2aa198', 'sol-green':  '#859900',
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const html = document.documentElement;
-            const buttons = document.querySelectorAll('.social-button');
+                        // Material You Roles using Solarized Palette
+                        // Light Mode
+                        'sol-light-surface': '#fdf6e3', // base3
+                        'sol-light-on-surface': '#586e75', // base01
+                        'sol-light-on-surface-variant': '#657b83', // base00
+                        'sol-light-surface-container': '#eee8d5', // base2
+                        'sol-light-hover': '#e7e1cf', // derived from base2
 
-            /**
-             * Applies the correct theme (dark or light) based on the user's preference.
-             * Toggles the 'dark' class on the html element, which Tailwind uses to apply dark mode styles.
-             * @param {boolean} isDarkMode - True if dark mode should be applied, false for light mode.
-             */
-            function applyTheme(isDarkMode) {
-                if (isDarkMode) {
-                    html.classList.add('dark');
-                } else {
-                    html.classList.remove('dark');
+                        'sol-light-red-container': '#fceae9', 'sol-light-on-red-container': '#dc322f', 'sol-light-red-hover': '#f9d5d4',
+                        'sol-light-orange-container': '#fef0ea', 'sol-light-on-orange-container': '#cb4b16', 'sol-light-orange-hover': '#fce3d9',
+                        'sol-light-magenta-container': '#faebf3', 'sol-light-on-magenta-container': '#d33682', 'sol-light-magenta-hover': '#f7d6e7',
+                        'sol-light-blue-container': '#e9f3fa', 'sol-light-on-blue-container': '#268bd2', 'sol-light-blue-hover': '#d4e8f6',
+                        'sol-light-cyan-container': '#e9f5f4', 'sol-light-on-cyan-container': '#2aa198', 'sol-light-cyan-hover': '#d4eceb',
+                        'sol-light-green-container': '#f3f5e5', 'sol-light-on-green-container': '#859900', 'sol-light-green-hover': '#e7ebcf',
+                        
+                        // Dark Mode
+                        'sol-dark-surface': '#002b36', // base03
+                        'sol-dark-on-surface': '#93a1a1', // base1
+                        'sol-dark-on-surface-variant': '#839496', // base0
+                        'sol-dark-surface-container': '#073642', // base02
+                        'sol-dark-hover': '#0c4553', // derived from base02
+
+                        'sol-dark-red-container': '#47201f', 'sol-dark-on-red-container': '#dc322f', 'sol-dark-red-hover': '#5c2a29',
+                        'sol-dark-orange-container': '#422615', 'sol-dark-on-orange-container': '#cb4b16', 'sol-dark-orange-hover': '#57311a',
+                        'sol-dark-magenta-container': '#442136', 'sol-dark-on-magenta-container': '#d33682', 'sol-dark-magenta-hover': '#592b46',
+                        'sol-dark-blue-container': '#1b394d', 'sol-dark-on-blue-container': '#268bd2', 'sol-dark-blue-hover': '#224a63',
+                        'sol-dark-cyan-container': '#1d3e3c', 'sol-dark-on-cyan-container': '#2aa198', 'sol-dark-cyan-hover': '#26524f',
+                        'sol-dark-green-container': '#373d10', 'sol-dark-on-green-container': '#859900', 'sol-dark-green-hover': '#485014',
+                    }
                 }
             }
+        };
 
-            // Check the initial system theme preference and apply it
-            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            applyTheme(prefersDarkMode);
+        // --- Live Wallpaper & Theme Management ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const html = document.documentElement;
+            const canvas = document.getElementById('live-background');
+            const ctx = canvas.getContext('2d');
+            const toggleButton = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
 
-            // Listen for changes in the system's theme preference and update the site
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-                applyTheme(e.matches);
+            let particles = [];
+            const particleCount = 50;
+            // Particle colors from the Solarized accent palette
+            const particleColors = ['#b58900', '#cb4b16', '#dc322f', '#d33682', '#6c71c4', '#268bd2', '#2aa198', '#859900'];
+
+            const resizeCanvas = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            };
+
+            const initParticles = () => {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.4,
+                        vy: (Math.random() - 0.5) * 0.4,
+                        radius: Math.random() * 2 + 1.5,
+                        color: particleColors[Math.floor(Math.random() * particleColors.length)]
+                    });
+                }
+            };
+
+            const animate = () => {
+                ctx.fillStyle = html.classList.contains('dark') ? '#002b36' : '#fdf6e3';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.vx; p.y += p.vy;
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                    ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color; ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            };
+
+            const applyTheme = (isDarkMode) => {
+                html.classList.toggle('dark', isDarkMode);
+                html.classList.toggle('light', !isDarkMode);
+                sunIcon.classList.toggle('hidden', isDarkMode);
+                moonIcon.classList.toggle('hidden', !isDarkMode);
+            };
+
+            // --- Event Listeners ---
+            toggleButton.addEventListener('click', () => {
+                const isCurrentlyDark = html.classList.contains('dark');
+                applyTheme(!isCurrentlyDark);
             });
+            window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            mediaQuery.addEventListener('change', (e) => applyTheme(e.matches));
 
-            // Add simple visual effects to buttons on interaction (click/tap)
-            buttons.forEach(button => {
-                // Effect for mouse clicks
-                button.addEventListener('mousedown', () => {
-                    button.classList.add('scale-95', 'shadow-inner');
-                });
-                button.addEventListener('mouseup', () => {
-                    button.classList.remove('scale-95', 'shadow-inner');
-                });
-                // Reset effect if mouse leaves while button is pressed
-                button.addEventListener('mouseleave', () => {
-                    button.classList.remove('scale-95', 'shadow-inner');
-                });
-
-                // Effects for touch interactions (mobile)
-                button.addEventListener('touchstart', (e) => {
-                    e.preventDefault(); // Prevent default touch behaviors like scrolling
-                    button.classList.add('scale-95', 'shadow-inner');
-                }, { passive: false }); // Use passive: false to allow preventDefault
-                button.addEventListener('touchend', () => {
-                    button.classList.remove('scale-95', 'shadow-inner');
-                });
-                button.addEventListener('touchcancel', () => { // Handle cases where touch is interrupted
-                    button.classList.remove('scale-95', 'shadow-inner');
-                });
-            });
+            // --- Initial Setup ---
+            resizeCanvas();
+            initParticles(); // Particles are the same for both themes
+            applyTheme(mediaQuery.matches);
+            animate();
         });
     </script>
 </body>
